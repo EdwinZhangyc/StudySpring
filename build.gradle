@@ -27,6 +27,9 @@ sourceSets {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
+    //mock
+    compile 'org.mockito:mockito-all:1.10.19'
+
     //spring 依赖
     compile 'org.springframework:spring-core:3.2.9.RELEASE'
     compile 'org.springframework:spring-web:3.2.9.RELEASE'

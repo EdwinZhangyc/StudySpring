@@ -1,4 +1,4 @@
-package com.zyc.test;
+package com.zyc.test.chapterOne.InitSpring.boilerplateCode;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -66,4 +66,5 @@ public class TestJDBC {
         return lists;
 
     }
+
 }
