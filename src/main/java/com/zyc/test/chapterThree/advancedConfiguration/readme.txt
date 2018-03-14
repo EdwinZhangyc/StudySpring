@@ -50,7 +50,7 @@
             单例是默认的作用域，如果想要切换到其他作用域则使用@Scope注解，它可以与@Component组合使用，在JavaConfig中可以与@Bean组合使用，使用XML时<bean id="" class="" scope="prototype"/>
             如：@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) = @Scope("prototype") 但是SCOPE_PROTOTYPE更加安全 实例：Notepad.java
         3.4.1 使用会话和请求作用域
-            没太理解什么意思
+            没太理解什么意思，基于代理之类。
         3.4.2 在XML中声明作用域代理
     3.5 运行时植入
         Spring 提供两种在运行时求值得方式：
@@ -70,6 +70,21 @@
                 正则表达式匹配
                 集合操作
             SpEL样例：
-                SpEL表达式要放到#{...}中，与属性占位符${...}很相似，但是不一样
+                SpEL表达式要放到#{...}中，与属性占位符${...}很相似，但是不一样，引用系统变量#{systemProperties['test']}
+                表示字面值
+                    #{1}
+                引用bean、属性和方法
+                在表达式中使用类型
+                    #{T(java.lang.Math).PI}
+                SpEL运算符
+                    #{disc.title ?: '如果disc.title值为空则显示我，三木运算'}
+                计算正则表达式
+                    #{admin.mail mathes '[a-z].....'}
+                计算集合
+                    这个地方理解的也不透彻，需要后期多做练习
+    3.6 小结
+        本章所讲内容还是较为丰富，进一步做bean高级配置，要多多练习，还有几处不理解的地方，后期慢慢理解。
+
+
 
 
