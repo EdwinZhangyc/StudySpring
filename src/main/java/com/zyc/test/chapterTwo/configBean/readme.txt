@@ -26,6 +26,29 @@
             @AutoWired(required=false)时，Spring会尝试执行自动装配，但是如果没有匹配的bean的话，Spring会让这个bean处于未装配状态。但是需要谨慎对待，如果代码没有进行null检查，会报空指针异常。
         2.2.5 验证AutoWiring
     2.3 通过Java代码显示装配bean
-        1、通过javaConfig显示的配置Spring：创建JavaConfig类的关键在于为其添加@Configuration注解，他表明了这是一个配置类。
-        2、隐式配置（自动化配置bean），在javaConfig类中添加@ComponentScan注解即可。2.2.3设置扫描路径
-小结：第二章讲述的内容不算复杂，就是spring的三种配置方案，以及混合配置，有时间可以每种方案都进行一次配置项目实践。
+        使用场景：当存在第三方类库时自动配置的方式就不起作用了，由于第三方类库中是不存在@Component及@Autowired注解的，这时就需要使用JavaConfig或XML配置的方式了。
+        2.3.1 创建配置类
+            带有@Configuration注解的类会被默认为JavaConfig类。
+        2.3.2 声明简单的bean
+            在JavaConfig类中使用@Bean
+        2.3.3 借助JavaConfig实现注入
+    2.4 通过XML装配Bean
+        2.4.1 创建XML配置规范
+        2.4.2 声明一个简单的<bean>
+        2.4.3 借助构造器注入初始化bean
+            <Constructor-arg ref/value=""> ref注入bean value配置参数
+            spring3.0引入c-命名空间
+            构造器注入bean引用
+            将字面量注入到构造器中
+            装配集合（c标签没有此功能）
+        2.4.4 设置属性
+            将字面量注入到属性中，实例在XMLConfig下BlankDisc
+    2.5 导入和混合配置
+        2.5.1 JavaConfig中引入XML配置
+            JavaConfig引入其他JavaConfig使用@Import注解
+            JavaConfig引入XML配置文件使用@ImportResource注解
+        2.5.2 在XML配置中引用JavaConfig
+            XML配置引用其他XML配置<import resource="classpath:test.xml"/>
+            XML配置文件引用JavaConfig使用<bean class="com.zyc.test.JavaConfig"/>
+    2.6 小结
+        第二章讲述的内容不算复杂，就是spring的三种配置方案，以及混合配置，有时间可以每种方案都进行一次配置项目实践。
