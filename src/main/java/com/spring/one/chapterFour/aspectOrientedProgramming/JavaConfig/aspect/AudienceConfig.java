@@ -1,4 +1,4 @@
-package com.spring.one.chapterFour.aspectOrientedProgramming.aspect;
+package com.spring.one.chapterFour.aspectOrientedProgramming.JavaConfig.aspect;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

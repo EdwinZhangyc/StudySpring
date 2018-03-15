@@ -1,12 +1,15 @@
 package com.spring.one.chapterTwo.configBean.autoWiring;
 
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 /**
  * 程序清单2.5 测试组件扫描能够发现CompactDisc
@@ -17,8 +20,8 @@ import static org.junit.Assert.assertNotNull;
 @ContextConfiguration(classes = CDPlayerConfig.class)
 public class CDPlayerTest {
 
-    //@Rule
-    //public final StandardOutputStreamLog log = new StandardOutputStreamLog ();
+    @Rule
+    public final StandardOutputStreamLog log = new StandardOutputStreamLog ();
 
     @Autowired
     private CompactDisc CD;
@@ -29,9 +32,9 @@ public class CDPlayerTest {
         assertNotNull(CD);
     }
 
-    //@Test
-    //public void paly () {
-    //    CD.play();
-    //    assertEquals("Playing title by artist", log.getLog());
-    //}
+    @Test
+    public void paly () {
+        CD.play();
+        assertEquals("Playing title by artist", log.getLog());
+    }
 }

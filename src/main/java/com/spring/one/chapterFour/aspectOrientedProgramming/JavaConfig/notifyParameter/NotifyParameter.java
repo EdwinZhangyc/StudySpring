@@ -1,4 +1,4 @@
-package com.spring.one.chapterFour.aspectOrientedProgramming.notifyParameter;
+package com.spring.one.chapterFour.aspectOrientedProgramming.JavaConfig.notifyParameter;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -15,7 +15,7 @@ public class NotifyParameter {
 
     private Map<Integer, Integer> trackCounts = new HashMap<Integer, Integer>();
 
-    @Pointcut("execution(* com.spring.one.chapterTwo.configBean.autoWiring.CompactDisc.play(int)) && args(trackNumber)")
+    @Pointcut("execution(* com.spring.one.chapterTwo.configBean.autoWiring.CompactDisc.player(int)) && args(trackNumber)")
     public void trackPlayed (int trackNumber){}
 
     //在播放前为该磁道计数

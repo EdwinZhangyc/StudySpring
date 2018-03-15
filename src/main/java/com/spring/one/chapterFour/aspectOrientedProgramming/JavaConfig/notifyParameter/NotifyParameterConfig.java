@@ -1,4 +1,4 @@
-package com.spring.one.chapterFour.aspectOrientedProgramming.notifyParameter;
+package com.spring.one.chapterFour.aspectOrientedProgramming.JavaConfig.notifyParameter;
 
 import com.spring.one.chapterTwo.configBean.XMLConfig.BlankDisc;
 import com.spring.one.chapterTwo.configBean.autoWiring.CompactDisc;

@@ -1,4 +1,4 @@
-package com.spring.one.chapterFour.aspectOrientedProgramming.aspect;
+package com.spring.one.chapterFour.aspectOrientedProgramming.JavaConfig.aspect;
 
 import org.aspectj.lang.annotation.*;
 
@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.*;
 public class AudienceUpgrade {
 
     //定义切点表达式
-    @Pointcut("execution(* com.spring.one.chapterFour.aspectOrientedProgramming.writePointcut.Performance.perform(..))")
+    @Pointcut("execution(* com.spring.one.chapterFour.aspectOrientedProgramming.Performance.perfrom(..))")
     public void performance(){}
 
     //表演之前

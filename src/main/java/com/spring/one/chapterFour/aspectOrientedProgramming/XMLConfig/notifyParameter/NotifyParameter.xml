@@ -22,9 +22,26 @@
 
     <context:component-scan base-package="com"/>
 
-    <!--启动AspectJ自动代理-->
-    <aop:aspectj-autoproxy/>
+    <bean id="notifyParameter" class="com.spring.one.chapterFour.aspectOrientedProgramming.XMLConfig.notifyParameter.NotifyParameter"/>
 
-    <!--声明AudienceUpgrade bean-->
-    <bean id="audienceUpgrade" class="com.spring.one.chapterFour.aspectOrientedProgramming.aspect.AudienceUpgrade"/>
+    <bean id="blankDisc" class="com.spring.one.chapterTwo.configBean.XMLConfig.BlankDisc">
+        <property name="title" value="title"/>
+        <property name="artist" value="artist"/>
+        <property name="tracks">
+            <list>
+                <value>11</value>
+                <value>12</value>
+                <value>13</value>
+                <value>14</value>
+            </list>
+        </property>
+    </bean>
+    <aop:config>
+        <aop:aspect ref="notifyParameter">
+            <aop:pointcut id="trackPlayed"
+                          expression="execution(* com.spring.one.chapterTwo.configBean.autoWiring.CompactDisc.player(int)) and args(trackNumber)"/>
+            <aop:before method="countTrack"
+                        pointcut-ref="trackPlayed"/>
+        </aop:aspect>
+    </aop:config>
 </beans>

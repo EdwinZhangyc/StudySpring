@@ -1,4 +1,4 @@
-package com.spring.one.chapterFour.aspectOrientedProgramming.writePointcut;
+package com.spring.one.chapterFour.aspectOrientedProgramming;
 
 /**
  * 定义切点

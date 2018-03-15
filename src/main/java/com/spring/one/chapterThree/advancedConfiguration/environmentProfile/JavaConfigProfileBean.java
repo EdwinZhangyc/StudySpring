@@ -1,14 +1,6 @@
 package com.spring.one.chapterThree.advancedConfiguration.environmentProfile;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.jndi.JndiObjectFactoryBean;
-
-import javax.activation.DataSource;
 
 /**
  * 3.1.1配置profile bean 使用javaConfig的方式进行差异化配置
@@ -18,23 +10,23 @@ import javax.activation.DataSource;
 //@Profile("prod") //3.2之前，该属性只可以写在java类上
 public class JavaConfigProfileBean {
 
-    @Bean
-    @Profile("dev")
-    public DataSource embeddeDataSource () {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .addScript("classpath:schema.sql")
-                .addScript("classpath:test-data.sql")
-                .build();
-    }
-
-    @Bean
-    @Profile("prod")
-    public DataSource jndiDataSource () {
-        JndiObjectFactoryBean jndiObjectFactoryBean = new JndiObjectFactoryBean();
-        jndiObjectFactoryBean.setJndiName("jdbc/myDS");
-        jndiObjectFactoryBean.setResourceRef(true);
-        jndiObjectFactoryBean.setProxyInterface(javax.sql.DataSource.class);
-        return (DataSource) jndiObjectFactoryBean.getObject ();
-    }
+    //@Bean
+    //@Profile("dev")
+    //public DataSource embeddeDataSource () {
+    //    return new EmbeddedDatabaseBuilder()
+    //            .setType(EmbeddedDatabaseType.H2)
+    //            .addScript("classpath:schema.sql")
+    //            .addScript("classpath:test-data.sql")
+    //            .build();
+    //}
+    //
+    //@Bean
+    //@Profile("prod")
+    //public DataSource jndiDataSource () {
+    //    JndiObjectFactoryBean jndiObjectFactoryBean = new JndiObjectFactoryBean();
+    //    jndiObjectFactoryBean.setJndiName("jdbc/myDS");
+    //    jndiObjectFactoryBean.setResourceRef(true);
+    //    jndiObjectFactoryBean.setProxyInterface(javax.sql.DataSource.class);
+    //    return (DataSource) jndiObjectFactoryBean.getObject ();
+    //}
 }

@@ -5,4 +5,5 @@ package com.spring.one.chapterTwo.configBean.autoWiring;
  */
 public interface CompactDisc {
     void play ();
+    void player (int i);
 }
