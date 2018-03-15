@@ -1,6 +1,6 @@
 package three;
 
-import com.zyc.test.chapterThree.advancedConfiguration.environmentProfile.JavaConfigProfileBean;
+import com.spring.one.chapterThree.advancedConfiguration.environmentProfile.JavaConfigProfileBean;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;

@@ -1,7 +1,7 @@
 package one;
 
-import com.zyc.test.chapterOne.InitSpring.DIknights.BraveKnight;
-import com.zyc.test.chapterOne.InitSpring.DIknights.Quest;
+import com.spring.one.chapterOne.InitSpring.DIknights.BraveKnight;
+import com.spring.one.chapterOne.InitSpring.DIknights.Quest;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 

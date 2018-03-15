@@ -29,6 +29,9 @@ dependencies {
 
     //mock
     compile 'org.mockito:mockito-all:1.10.19'
+    //standardoutputstreamlog
+    compile 'com.github.stefanbirkner:system-rules:1.16.0'
+
 
     //spring 依赖
     compile 'org.springframework:spring-core:4.0.0.RELEASE'

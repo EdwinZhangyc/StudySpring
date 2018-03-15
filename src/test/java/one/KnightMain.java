@@ -1,6 +1,6 @@
 package one;
 
-import com.zyc.test.chapterOne.InitSpring.DIknights.Knight;
+import com.spring.one.chapterOne.InitSpring.DIknights.Knight;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
