@@ -32,6 +32,7 @@
         5.3.1 处理查询参数
         5.3.2 通过路径参数接受输入
     5.4 处理表单
+        详情见com.spring.two.chapterFive.buildSpringWeb.submitForm包下，很重要
         5.4.1 编写处理表单的控制器
         5.4.2 校验表单
     5.5 小结

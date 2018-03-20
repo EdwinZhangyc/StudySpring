@@ -65,15 +65,15 @@ public class SpittleController {
         return spittleRepository.findSpittles(max, count);
     }
     //分页赋予默认值 通过查询参数来处理请求
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Spittle> spittles1(
-            @RequestParam(value = "max",
-                          defaultValue = MAX_LONG_AS_STRING) long max,
-            @RequestParam(value = "count",
-                          defaultValue = "20") int count
-    ){
-        return spittleRepository.findSpittles(max, count);
-    }
+    //@RequestMapping(method = RequestMethod.GET)
+    //public List<Spittle> spittles1(
+    //        @RequestParam(value = "max",
+    //                      defaultValue = MAX_LONG_AS_STRING) long max,
+    //        @RequestParam(value = "count",
+    //                      defaultValue = "20") int count
+    //){
+    //    return spittleRepository.findSpittles(max, count);
+    //}
 
     /**
      * 通过路径参数接受输入
@@ -90,7 +90,7 @@ public class SpittleController {
     }
     //将路径设置为动态的
     @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
-    public String showSpittle (
+    public String showSpittle1 (
             @PathVariable("spittleId") long spittleId,
             //@PathVariable括号里的内容可写可不写。不写的意思表示与RequestMapping中的值一致，简化代码
             //@PathVariable long spittleId,

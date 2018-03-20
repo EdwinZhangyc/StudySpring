@@ -32,6 +32,9 @@ dependencies {
     compile 'org.mockito:mockito-core:2.13.0'
     compile 'org.mockito:mockito-all:2.0.2-beta'
 
+    //NotNull validation
+    compile 'javax.validation:validation-api:2.0.1.Final'
+
 
     //standardoutputstreamlog
     compile 'com.github.stefanbirkner:system-rules:1.16.0'
