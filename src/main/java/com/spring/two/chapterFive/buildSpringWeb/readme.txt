@@ -7,13 +7,18 @@
     5.1 Spring MVC起步
         Spring将请求在调度Servlet、处理器映射（handler mapping）、控制器以及视图解析器（view resolver）之间移动。
         5.1.1 跟踪Spring MVC的请求
+            请求-->Dispatcher(front controller)Servlet-->handler mapping-->controller-->模型及逻辑视图名-->view resolver-->view
         5.1.2 搭建Spring MVC
             配置DispatcherServlet
                 传统方式会将DispatcherServlet配置到web.xml中。servlet3与Spring3.1增强后，就不是唯一的方案了，可以采用Java将DispatcherServlet配置在servlet容器中。
+                java类中extends AbstractAnnotationConfigDispatcherServletInitializer（抽象注释配置调度servlet初始化） override 三个方法，在指定配置类即可。
                 详情见com.spring.two.chapterFive.buildSpringWeb.buildSpringMVC包下
             两个应用上下文间的故事
+                ours hope DispatcherServlet 加载包含Web组件的bean，如controller，View Resolver以及handler mapping等。
+                ContextLoaderListner要加载应用中其他的bean，这些bean通常是驱动应用后端的业务逻辑和数据层组件。
             启动Spring MVC
-                @EnableWebMvc来创建SpringMVC配置文件，详细配置见WebConfig.java
+                xml中使用<mvc:annotation-driven>启动注解驱动Spring MVC
+                @EnableWebMvc来创建SpringMVC配置文件，同时配置静态资源。详细配置见WebConfig.java
         5.1.3 Spittr应用简介
     5.2 编写基本的控制器
         5.2.1 测试控制器
