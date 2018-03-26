@@ -2,13 +2,11 @@ package com.spring.two.chapterFive.buildSpringWeb.modelDatatoView;
 
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.servlet.view.InternalResourceView;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.hasItems;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -43,52 +41,52 @@ public class TestSpittr {
      * 升级版，采用分页
      * 程序清单5.11 用来测试分页spittle列表的新方法
      */
-    @Test
-    public void shouldShowRecentSpittles () throws Exception {
-
-        List<Spittle> spittles = createSpittleList(50);
-        //mockRepository
-        SpittleRepository mockRepository = mock(SpittleRepository.class);
-        //预期的Max与count
-        when(mockRepository.findSpittles(23890, 50)).thenReturn(spittles);
-
-        SpittleController controller = new SpittleController (mockRepository);
-        //mockSpringMVC
-        MockMvc mockMvc = standaloneSetup(controller)
-                .setSingleView(new InternalResourceView("WEB-INF/views/spittles.jsp"))
-                .build();
-        //对"/spittles"发起GET请求,传入max与count的参数
-        mockMvc.perform(get("/spittles?max=23890&count=50"))
-                .andExpect(view().name("spittles"))
-                //断言期望的值
-                .andExpect(model().attributeExists("spittleList"))
-                .andExpect(model().attribute("spittleList", hasItems(spittles.toArray())));
-    }
+    //@Test
+    //public void shouldShowRecentSpittles () throws Exception {
+    //
+    //    List<Spittle> spittles = createSpittleList(50);
+    //    //mockRepository
+    //    SpittleRepository mockRepository = mock(SpittleRepository.class);
+    //    //预期的Max与count
+    //    when(mockRepository.findSpittles(23890, 50)).thenReturn(spittles);
+    //
+    //    SpittleController controller = new SpittleController (mockRepository);
+    //    //mockSpringMVC
+    //    MockMvc mockMvc = standaloneSetup(controller)
+    //            .setSingleView(new InternalResourceView("WEB-INF/views/spittles.jsp"))
+    //            .build();
+    //    //对"/spittles"发起GET请求,传入max与count的参数
+    //    mockMvc.perform(get("/spittles?max=23890&count=50"))
+    //            .andExpect(view().name("spittles"))
+    //            //断言期望的值
+    //            .andExpect(model().attributeExists("spittleList"))
+    //            .andExpect(model().attribute("spittleList", hasItems(spittles.toArray())));
+    //}
 
     /**
      * 最初版
      * 程序清单5.9 测试SpittleController处理针对/spittles 的GET请求
      */
-    @Test
-    public void shouldShowRecentSpittles1 () throws Exception {
-
-        List<Spittle> spittles = createSpittleList(20);
-        //mockRepository
-        SpittleRepository mockRepository = mock(SpittleRepository.class);
-        when(mockRepository.findSpittles(Long.MAX_VALUE, 20)).thenReturn(spittles);
-
-        SpittleController controller = new SpittleController (mockRepository);
-        //mockSpringMVC
-        MockMvc mockMvc = standaloneSetup(controller)
-                .setSingleView(new InternalResourceView("WEB-INF/views/spittles.jsp"))
-                .build();
-        //对"/spittles"发起GET请求
-        mockMvc.perform(get("/spittles"))
-                .andExpect(view().name("spittles"))
-                //断言期望的值
-                .andExpect(model().attributeExists("spittleList"))
-                .andExpect(model().attribute("spittleList", hasItems(spittles.toArray())));
-    }
+    //@Test
+    //public void shouldShowRecentSpittles1 () throws Exception {
+    //
+    //    List<Spittle> spittles = createSpittleList(20);
+    //    //mockRepository
+    //    SpittleRepository mockRepository = mock(SpittleRepository.class);
+    //    when(mockRepository.findSpittles(Long.MAX_VALUE, 20)).thenReturn(spittles);
+    //
+    //    SpittleController controller = new SpittleController (mockRepository);
+    //    //mockSpringMVC
+    //    MockMvc mockMvc = standaloneSetup(controller)
+    //            .setSingleView(new InternalResourceView("WEB-INF/views/spittles.jsp"))
+    //            .build();
+    //    //对"/spittles"发起GET请求
+    //    mockMvc.perform(get("/spittles"))
+    //            .andExpect(view().name("spittles"))
+    //            //断言期望的值
+    //            .andExpect(model().attributeExists("spittleList"))
+    //            .andExpect(model().attribute("spittleList", hasItems(spittles.toArray())));
+    //}
 
     private List<Spittle> createSpittleList(int count) {
         List<Spittle> spittles = new ArrayList<Spittle>();

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 //启动SpringMVC
 @EnableWebMvc
 //开启自动扫描组件
-@ComponentScan("com.spring.two.chapterFive.buildSpringWeb")
+@ComponentScan("com.spring.two.chapterFive.buildSpringWeb.buildSpringMVC")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     //配置JSP视图解析器
@@ -26,7 +26,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
-        resolver.setExposeContextBeansAsAttributes(true);
+        //resolver.setExposeContextBeansAsAttributes(true);
+        resolver.setViewClass(
+                org.springframework.web.servlet.view.JstlView.class
+        );
         return resolver;
     }
 
