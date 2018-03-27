@@ -1,13 +1,12 @@
-package com.spring.two.chapterFive.buildSpringWeb.modelDatatoView;
+package com.spring.two.chapterSeven.advancede.customDispatcher;
 
-import com.spring.two.chapterFive.buildSpringWeb.submitForm.Spitter;
 
 import java.util.List;
 
 public interface SpittleRepository {
     List<Spittle> findSpittles(long max, int count);
     Spittle findOne(long id);
-    Spitter save(Spitter spitter);
+    void  save(Spittle spittle);
 
     Spitter findByUserName(String username);
 }
