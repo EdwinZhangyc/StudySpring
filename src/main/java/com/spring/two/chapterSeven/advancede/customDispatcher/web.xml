@@ -1,0 +1,60 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+
+
+<!--程序清单7.4 设置web.xml使用基于Java的配置-->
+
+    <context-param>
+        <!--使用java配置-->
+        <param-name>contextClass</param-name>
+        <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <!--指定根本地配置类-->
+        <param-value>com.spring.two.chapterSeven.advancede.customDispatcher.RootConfig</param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <!--使用XML的方式限制multipart上传文件大小,最大上传文件2MB，一次请求最大请求为4MB-->
+        <multipart-config>
+            <location>/tmp/uploads</location>
+            <max-file-size>2000000</max-file-size>
+            <max-request-size>4000000</max-request-size>
+        </multipart-config>
+        <init-param>
+            <!--使用java配置-->
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <!--指定DisptcherServlet本地配置类-->
+            <param-value>com.spring.two.chapterSeven.advancede.customDispatcher.WebConfig</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

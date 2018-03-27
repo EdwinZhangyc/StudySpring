@@ -18,7 +18,7 @@ public class WebConfigSix extends WebMvcConfigurerAdapter {
     public ViewResolver viewResolver() {
 
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setPrefix("/WEB-INF/viewsChapterSix/");
         resolver.setSuffix(".jsp");
         resolver.setViewClass(
                 org.springframework.web.servlet.view.JstlView.class

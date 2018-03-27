@@ -121,13 +121,13 @@ task wrapper(type: Wrapper) {
 }
 
 war {
-    baseName = 'spittr'
+    baseName = 'StudySpring'
 }
 
 eclipse {
     wtp {
         component {
-            contextPath = 'spittr'
+            contextPath = 'StudySpring'
         }
     }
 }
