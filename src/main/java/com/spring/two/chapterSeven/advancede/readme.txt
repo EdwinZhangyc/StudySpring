@@ -22,3 +22,26 @@
             在控制器上添加@RequestPart注解，使用方式@RequestPart("profilePicture") byte[] profilePicture,  在接受的方法参数上添加
             接受multipartFile
             将文件保存到Amazon S3中
+            以part的形式接受上传的文件
+    7.3 处理异常
+        Spring提供了多种方式将异常转换为响应：
+            1、特定的Spring异常将会自动映射为指定的HTTP状态码。
+            2、异常上可以添加@ResponseStatus注解，从而将其映射为某一个HTTP状态码。
+            3.在方法上添加@ExceptionHandler注解，使其用来处理异常。
+        7.3.1 将异常映射为HTTP状态码
+            使用@ResponseStatus注解来完成相应的操作，详情见SpittleNotFoundException.java
+        7.3.2 编写异常处理方法
+            如果出现了某异常则执行某方法，使用@ExceptionHandler注解注释方法来实现完成com.spring.two.chapterSeven.advancede.customDispatcher.SpittleController.java中的handleDuplicateSpittle方法
+    7.4 为控制器添加通知
+        以上所述是同一个控制器下可以进行捕获异常，但是有没有办法使所有的控制器使用同一捕获异常的方法呢，有两种解决的方式：
+            1、使所有的控制器继承同一父类，从而继承@ExceptionHandler方法
+            2、使用@ControllerAdvice  详情见AppWideExceptionHandler.java
+    7.5 跨重定向请求传递参数
+        对于重定向来说，模型并不能够用来传递数据。但我们也有一些其他方案，能够从发起重定向的方法传递数据给处理重定向的方法中。
+            1、使用URL模板以路径变量或是查询参数的形式进行传递参数(缺点：不能进行传递复杂的值，如传递对象)
+            2、通过flash属性发送数据
+        7.5.1 通过URL模板进行重定向
+            Model  model   model.addAttribute(key,value)/或"redirect:spitter/{username}"
+        7.5.2 使用flash属性
+            RedirectAttributes model model.addFlashAttribute("spitter", spitter);
+    7.6 小结

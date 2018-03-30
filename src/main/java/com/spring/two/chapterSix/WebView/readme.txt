@@ -17,3 +17,24 @@
             将表单绑定到模型上
                 为了使用表单绑定，需要JSP页面声明：
                     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %> 前缀（prefix）通常也是from
+            展现错误
+                <sf:errors path="firstName" cssClass="error"/>  详情见/WEB-INF/viewsChapterSix/registerForm.jsp
+                同时在后台添加校验表单，以及校验失败后提示的信息，同时对不同浏览器国家语言，展现不同的报错语言信息
+            Spring通用标签库
+                <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+            展现国际化信息
+            创建URL
+            转义内容
+    6.3 使用Apache Tiles 视图定义布局
+        适用于所有页面的通用页面布局
+        6.3.1 配置Tiles视图解析器
+            需要配置两个bean，一个是TilesConfigurer，一个是TilesViewResolver 同时可以使用xml就行配置
+            定义Tiles（布局）
+                详情见layout下配置。
+    6.4 使用Thymeleaf
+        6.4.1 配置Thymeleaf视图解析器
+            为了要在Spring中使用Thymeleaf:我们需要配置三个启动Thymeleaf与Spring集成的bean
+                1、ThymeleafViewResolver:将逻辑视图名称解析为Thymeleaf模板视图
+                2、SpringTemplateEngine:处理模板并渲染结果
+                3、TemplateResolver:加载Thymeleaf的支持
+        6.4.2 定义Thymeleaf模板

@@ -91,6 +91,11 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+    compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
+    compile "log4j:log4j:$log4jVersion"
+
     compile "org.springframework:spring-webmvc:$springVersion"
     compile "org.springframework:spring-jdbc:$springVersion"
     compile "com.h2database:h2:$h2Version"
@@ -106,6 +111,19 @@ dependencies {
     testCompile "org.springframework:spring-test:$springVersion"
     testCompile "org.mockito:mockito-core:$mockitoVersion"
     testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
+    compile ("org.apache.tiles:tiles-core:$tilesVersion") {
+        exclude group: 'org.slf4j'
+    }
+    compile ("org.apache.tiles:tiles-jsp:$tilesVersion") {
+        exclude group: 'org.slf4j'
+    }
+
+    compile "org.springframework.webflow:spring-webflow:$springWebflowVersion"
+    compile "org.springframework.webflow:spring-binding:$springWebflowVersion"
+    compile "org.aspectj:aspectjweaver:$aspectJVersion"
+    compile "org.apache.commons:commons-lang3:$commonsLangVersion"
+
+
 }
 
 repositories {
