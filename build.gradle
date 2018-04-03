@@ -111,6 +111,10 @@ dependencies {
     testCompile "org.springframework:spring-test:$springVersion"
     testCompile "org.mockito:mockito-core:$mockitoVersion"
     testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
+
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+
     compile ("org.apache.tiles:tiles-core:$tilesVersion") {
         exclude group: 'org.slf4j'
     }
