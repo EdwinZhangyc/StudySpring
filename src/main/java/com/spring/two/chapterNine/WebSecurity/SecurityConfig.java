@@ -1,6 +1,7 @@
 package com.spring.two.chapterNine.WebSecurity;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
@@ -14,17 +15,17 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //单点登陆 remember me
-    @Override
-    protected  void configure (HttpSecurity httpSecurity) throws Exception{
-
-        //9.4.3 remember-me  单点登陆
-        httpSecurity.formLogin()
-                .loginPage("/login")
-                .and()
-                .rememberMe()
-                .tokenValiditySeconds(233323223)
-                .key("spitterKey");
-    }
+    //@Override
+    //protected  void configure (HttpSecurity httpSecurity) throws Exception{
+    //
+    //    //9.4.3 remember-me  单点登陆
+    //    httpSecurity.formLogin()
+    //            .loginPage("/login")
+    //            .and()
+    //            .rememberMe()
+    //            .tokenValiditySeconds(233323223)
+    //            .key("spitterKey");
+    //}
 
     /**
      * 程序清单9.7 formLogin()方法启动基本登陆页功能，多个设置指令中使用and()相关联
@@ -60,20 +61,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     ////9.3拦截请求
-    //@Override
-    //protected  void configure (HttpSecurity httpSecurity) throws Exception{
-    //
-    //    httpSecurity.authorizeRequests()
-    //            .antMatchers("/spitter/me").authenticated()
-    //            //可以使用ant风格的通用符,同时可以指定多个路径
-    //            //.antMatchers("/spitter/**", "/spittles").authenticated()
-    //            .antMatchers(HttpMethod.POST, "/spittles").authenticated()
-    //            //用户不仅需要认证，同时需要具备ROLE_SPITER权限
-    //            .antMatchers(HttpMethod.GET, "/test").hasAuthority("ROLE_SPITER")
-    //            //用户不仅需要认证，同时需要具备ROLE_SPITER权限替代方案，可以直接省略ROLE_
-    //            .antMatchers(HttpMethod.GET, "/test").hasRole("SPITER")
-    //            .anyRequest().permitAll();
-    //}
+    @Override
+    protected  void configure (HttpSecurity httpSecurity) throws Exception{
+
+        httpSecurity.authorizeRequests()
+                .antMatchers("/spitter/me").authenticated()
+                //可以使用ant风格的通用符,同时可以指定多个路径
+                .antMatchers("/spitter/**", "/spittles").authenticated()
+                .antMatchers(HttpMethod.POST, "/spittles").authenticated()
+                //用户不仅需要认证，同时需要具备ROLE_SPITER权限
+                .antMatchers(HttpMethod.GET, "/test").hasAuthority("ROLE_SPITER")
+                //用户不仅需要认证，同时需要具备ROLE_SPITER权限替代方案，可以直接省略ROLE_
+                .antMatchers(HttpMethod.GET, "/test").hasRole("SPITER")
+                .anyRequest().permitAll();
+    }
 
     //基于自定义模式进行认证
     //@Autowired
