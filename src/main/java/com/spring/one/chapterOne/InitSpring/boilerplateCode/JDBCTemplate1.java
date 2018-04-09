@@ -6,7 +6,7 @@ package com.spring.one.chapterOne.InitSpring.boilerplateCode;
  *
  * 使用该类需要将jdbcTemplate引入该类
  */
-public class JDBCTemplate {
+public class JDBCTemplate1 {
 
 
     public Employee getEmployeeById (long id) {

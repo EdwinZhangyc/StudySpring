@@ -4,6 +4,12 @@
         2、借助上下文Session，编写不依赖于Spring的Repository
         3、通过Spring使用JPA（Java Persistence API）Java持久化API
         4、借助Spring Data实现自动化的JPA Repository
+    Spring对ORM框架的支持提供了与这些框架的集成点以及一些附加的服务：
+        1、支持集成Spring声明式事物
+        2、透明的异常处理
+        3、线程安全的、轻量级的模板类
+        4、DAO支持类
+        5、资源管理
     11.1 在Spring中继承Hibernate
         11.1.1 声明Hibernate的Session工厂
         11.1.2 构建不依赖于Spring的Hibernate代码

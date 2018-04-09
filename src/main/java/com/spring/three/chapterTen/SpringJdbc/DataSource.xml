@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+                        http://www.springframework.org/schema/task
+                        http://www.springframework.org/schema/task/spring-task-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <beans profile="Production">
+        <!--使用jndi配置数据源-->
+        <jee:jndi-lookup jndi-name="/jdbc/Spitter" id="dataSource" resource-ref="true" />
+    </beans>
+
+    <beans profile="QA">
+        <!--使用开源框架数据源连接池配置DBCP-->
+        <bean id="DBCPdataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+              p:driverClassName="org.h2.Driver"
+              p:url="jdbc:h2:tcp://localhost/~/spitter"
+              p:username="am"
+              p:password="am"
+              p:initialSize="5"/>
+    </beans>
+
+    <beans profile="Development1">
+        <!--基于jdbc配置数据源-->
+        <bean id="JdbcDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+              p:password="dm"
+              p:username="dm"
+              p:driverClassName="org.h2.Driver"
+              p:url="jdbc:h2:tcp://localhost/~/spitter"/>
+    </beans>
+
+    <beans profile="Development2">
+        <!--使用嵌入式数据库embedded database-->
+        <jdbc:embedded-database id="embeddedDataSource" type="H2">
+            <jdbc:script location="com/spring/three/chapterTen/SpringJdbc/schema.sql"/>
+            <jdbc:script location="classpath*:config/test-data.sql"/>
+        </jdbc:embedded-database>
+    </beans>
+
+</beans>
