@@ -107,7 +107,14 @@ dependencies {
     compile "org.springframework.security:spring-security-web:$springSecurityVersion"
     compile "org.springframework.webflow:spring-webflow:$springWebflowVersion"
     compile "org.springframework.webflow:spring-binding:$springWebflowVersion"
+    //第十一章与hibernate整合，JPA，Spring Data
     compile "org.hibernate:hibernate-core:$hibernateVersion"
+    //hivernate与jpa-hibernate
+    compile "org.springframework:spring-orm:$springVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateEntityManagerVersion"
+    //spring data
+    compile "org.springframework.data:spring-data-jpa:$springDataJpaVersion"
+
 
     compile "javax.inject:javax.inject:1"
     compile "javax.servlet:jstl:$jstlVersion"

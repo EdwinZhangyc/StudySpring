@@ -20,6 +20,9 @@
             从JDNI获取entity manager factory
         11.2.2 编写基于JPA的Repository
     11.3 借助Spring Data实现自动化的JPA Repository
+        public interface SpitterRepositorySpringData extends JpaRepository<Spitter, Long>
+        xml:<jpa:repositories base-package="com.spring.three.chapterEleven.relationalMapping"/>
+        JavaConfig:@EnableJpaRepositories(basePackages = "com.spring.three.chapterEleven.relationalMapping")
         11.3.1 定义查询方法
         11.3.2 声明自定义查询
         11.3.3 混合自定义功能

@@ -1,0 +1,14 @@
+<persistence
+        xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+    <persistence-unit name="spitterPU">
+        <class>com.spring.three.chapterEleven.relationalMapping.domain.Spitter</class>
+        <class>com.spring.three.chapterEleven.relationalMapping.domain.Spittle</class>
+        <properties>
+            <property name="toplink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="toplink.jdbc.url" value="jdbc:hsqldb:hsql://localhost/spitter/spitter"/>
+            <property name="toplink.jdbc.username" value="dm"/>
+            <property name="toplink.jdbc.password" value=""/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -25,9 +26,22 @@ public class JavaConfig {
      * @return
      */
     @Bean
-    public JdbcTemplate jdbcTemplate (DataSource dataSource) {
+    public JdbcTemplate jdbcOperation (DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
+
+    /**
+     * 使用NamedParameterJdbcTemplate  进行参数命名
+     */
+    @Bean
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate (DataSource dataSource) {
+        return new NamedParameterJdbcTemplate(dataSource);
+    }
+
+    //@Bean
+    //public SpitterRepository spitterRepository(JdbcTemplate jdbcTemplate) {
+    //    return new JdbcSpitterRepository(jdbcTemplate);
+    //}
 
     /**
      * 配置jndi数据源
