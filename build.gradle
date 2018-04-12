@@ -107,13 +107,20 @@ dependencies {
     compile "org.springframework.security:spring-security-web:$springSecurityVersion"
     compile "org.springframework.webflow:spring-webflow:$springWebflowVersion"
     compile "org.springframework.webflow:spring-binding:$springWebflowVersion"
-    //第十一章与hibernate整合，JPA，Spring Data
+    //chapterEleven hibernate JPA Spring Data
     compile "org.hibernate:hibernate-core:$hibernateVersion"
-    //hivernate与jpa-hibernate
+    //hibernate jpa-hibernate
     compile "org.springframework:spring-orm:$springVersion"
     compile "org.hibernate:hibernate-entitymanager:$hibernateEntityManagerVersion"
     //spring data
     compile "org.springframework.data:spring-data-jpa:$springDataJpaVersion"
+    //chapterTwelve mongoDB
+    compile("org.springframework:spring-context:4.0.6.RELEASE")
+    compile("org.springframework.data:spring-data-mongodb:1.5.2.RELEASE")
+    compile("org.mongodb:mongo-java-driver:2.11.3") // needed so that fongo will work
+    //chapterTwelve neo4j
+    compile("org.springframework.data:spring-data-neo4j:3.1.2.RELEASE")
+    compile("javax.validation:validation-api:1.0.0.GA")
 
 
     compile "javax.inject:javax.inject:1"
