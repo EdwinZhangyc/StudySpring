@@ -2,6 +2,7 @@ package com.spring.three.cahpterThrirteen.cacheData.db;
 
 
 import com.spring.three.cahpterThrirteen.cacheData.domain.Spitter;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 
@@ -13,9 +14,11 @@ public interface SpitterRepository {
 
   /**
    * 缓存这个方法的结果，实现该方法的类方法都具有这个特性，该特性为，
-   * 先查询缓存中是否有spittleCache这个方法，没有的话在执行findOne方法，得到值后存储到缓存中
+   * 先查询缓存中是否有spittleCache这个方法，没有的话在执行findOne方法，得到值后存储到缓存中.
    */
-  @Cacheable("spittleCache")
+  @Cacheable(value = "spittleCache",
+             unless = "#result.message.contains('NoCache')",
+             condition = "#id >= 10")
   Spitter findOne(long id);
 
   /**
@@ -25,6 +28,12 @@ public interface SpitterRepository {
    */
   @CachePut(value = "spittleCache", key = "#result.id")
   Spitter save(Spitter spitter);
+
+  /**
+   * 移除缓存条目
+   */
+  @CacheEvict("spittleCache")
+  void remove(long spitterId);
   //long count();
   //
   //

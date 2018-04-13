@@ -44,4 +44,9 @@ public class SpitterRepositoryImpl implements SpitterRepository {
     public Spitter save(Spitter spitter) {
         return null;
     }
+
+    @Override
+    public void remove(long spitterId) {
+
+    }
 }

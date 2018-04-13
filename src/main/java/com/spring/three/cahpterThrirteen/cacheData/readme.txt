@@ -22,6 +22,13 @@
             使用多个缓存管理器
     13.2 为方法添加注解以支持缓存
         13.2.1 填充缓存
+                @Cacheable("spittleCache")
             将值放到缓存中
+                @CachePut("spittleCache")
             自定义缓存key
+                @CachePut(value = "spittleCache", key = "#result.id")
             条件化缓存
+                unless,condition
+        13.2.2 移除缓存条目
+            @CacheEvict
+    13.3 使用XML声明缓存
