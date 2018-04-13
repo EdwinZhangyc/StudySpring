@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:neo4j="http://www.springframework.org/schema/aop"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/data/mongo
+                           http://www.springframework.org/schema/data/mongo/spring-mongo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+
+    <!--程序清单13.2 通过使用<cache:annotation-driven>启动注解驱动的缓存-->
+    <!--启用缓存-->
+    <cache:annotation-driven/>
+
+    <!--声明缓存管理器-->
+    <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+</beans>

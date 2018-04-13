@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:neo4j="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/data/mongo
+                           http://www.springframework.org/schema/data/mongo/spring-mongo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--配置neo4j数据库的细节-->
+    <neo4j:config
+            storeDirectory="/tmp/graphdb"
+            base-package="order"/>
+
+    <!--启动Repository生成功能-->
+    <neo4j:repositories base-package="com.spring"/>
+</beans>

@@ -33,7 +33,7 @@ public class Neo4jConfig extends Neo4jConfiguration {
     //@Autowired
     //Environment environment;
     //@Bean(destroyMethod = "shutdown")
-    //public GraphDatabaseService grapDatabaseService(Environment environment){
+    //public GraphDatabaseService grapDatabaseServiceRemote(Environment environment){
     //    return new SpringRestGraphDatabase(
     //            "http://graphdbserver:7474/db/data/",
     //            environment.getProperty("db.username"),

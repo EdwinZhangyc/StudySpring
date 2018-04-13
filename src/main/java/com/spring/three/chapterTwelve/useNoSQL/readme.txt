@@ -21,3 +21,23 @@
         12.2.2 使用注解标注图实体
         12.2.3 使用Neo4jTemplate
         12.2.4 创建自动化的Neo4j Repository
+            添加查询方法
+            自定义查询方法
+            混合自定义性能
+    12.3 使用Redis操作key-value数据
+        12.3.1 连接到Redis
+            Spring Data为四种Redis客户端提供实现：
+                JdeisConnectionFactory
+                JredisConnectionFactory
+                LettuceConnectionFactory
+                SrpConnectionFactory
+        12.3.2 使用redisTemplate
+            Spring Data Redis提供了两个模板：
+                RedisTemplate
+                StringRedisTemplate
+            使用最简单的值
+            使用List类型的值
+            在set上执行操作
+            绑定到某个key上
+        12.3.3 使用key和value的序列化器
+    12.4 小结

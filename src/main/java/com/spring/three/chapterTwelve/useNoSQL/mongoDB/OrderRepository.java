@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface OrderRepository extends MongoRepository<Order, String> {
+public interface OrderRepository extends MongoRepository<Order, String>, OrderOperations {
 
     //编写自定义查询方法
     List<Order> findByCustomer(String c);

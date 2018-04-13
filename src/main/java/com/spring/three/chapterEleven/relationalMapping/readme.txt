@@ -24,6 +24,12 @@
         xml:<jpa:repositories base-package="com.spring.three.chapterEleven.relationalMapping"/>
         JavaConfig:@EnableJpaRepositories(basePackages = "com.spring.three.chapterEleven.relationalMapping")
         11.3.1 定义查询方法
+            Spring Data 定义了一组小型的领域特定语言（domain-specific language, DSL）
+            Repository方法是由一个动词（read），一个可选主题（subject），关键词（by）以及一个断言组成。
+            几个符合方法命名约定的方法签名：
+                List<Pet> findPetsByBreedIn(List<String> breed)
+                int countProductsByDiscontinueedTrue()
+                List<Order> findByShippingDateBetween(Date start, Date end)
         11.3.2 声明自定义查询
         11.3.3 混合自定义功能
     11.4 小结
