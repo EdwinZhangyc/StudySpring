@@ -129,6 +129,9 @@ dependencies {
     compile "org.springframework:spring-context-support:$springVersion"
     compile "net.sf.ehcache:ehcache:$ehcacheVersion"
     compile "net.sf.ehcache:ehcache-jcache:$ehcacheJCacheVersion"
+    //chapterFourteen security
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+    compile "javax.annotation:jsr250-api:1.0"
 
 
     compile "javax.inject:javax.inject:1"
