@@ -45,7 +45,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
         new SpittleRowMapper(), id);
   }
 
-  public void save(Spittle spittle) {
+  public Spittle save(Spittle spittle) {
     jdbc.update(
         "insert into Spittle (message, created_at, latitude, longitude)" +
         " values (?, ?, ?, ?)",
@@ -53,6 +53,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
         spittle.getTime(),
         spittle.getLatitude(),
         spittle.getLongitude());
+    return null;
   }
 
   private static class SpittleRowMapper implements RowMapper<Spittle> {
