@@ -135,7 +135,10 @@ dependencies {
     //chapterSixteen REST
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     compile 'org.apache.httpcomponents:httpclient:4.5.3'
-
+    //chapterSeventeen JMS
+    compile "org.apache.activemq:activemq-spring:$activeMQVersion"
+    compile "org.apache.xbean:xbean-spring:3.7"
+    compile "org.springframework:spring-jms:$springVersion"
 
 
 
