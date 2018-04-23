@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:Websocket="http://www.springframework.org/schema/websocket"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+    <!--程序清单18.3 借助websocket命名空间以XML的方式配置WebSocket-->
+    <Websocket:handlers>
+        <Websocket:mapping path="/marco" handler="marcoHandler"/>
+        <Websocket:sockjs/><!--如果WebSocket不可用时，使用fallback plan SockJS时配置-->
+    </Websocket:handlers>
+
+    <!--声明MarcoHandler bean-->
+    <bean id="marcoHandler" class="com.spring.four.chapterEighteen.WebSocketAndSTOMP.service.MarcoHandler"/>
+
+</beans>

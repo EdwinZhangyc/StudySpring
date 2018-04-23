@@ -16,7 +16,9 @@ public class Spittle implements Serializable {
     this.message = message;
     this.postedTime = postedTime;
   }
+
   
+
   public Long getId() {
     return this.id;
   }

@@ -37,3 +37,4 @@
         17.2.4 使用基于消息的RPC
             导出基于JMS的服务
             使用基于JMS服务
+    17.3 使用AMQP（Advanced Message Queuing Protcol）实现消息功能

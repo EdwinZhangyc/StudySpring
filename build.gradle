@@ -139,6 +139,20 @@ dependencies {
     compile "org.apache.activemq:activemq-spring:$activeMQVersion"
     compile "org.apache.xbean:xbean-spring:3.7"
     compile "org.springframework:spring-jms:$springVersion"
+    //cahpterEighteen Socket
+    compile("org.springframework:spring-web:4.0.4.RELEASE")
+    compile("org.springframework:spring-websocket:4.0.4.RELEASE")
+    compile "org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE"
+    compile("org.webjars:jquery:2.0.3-1")
+    compile("org.webjars:sockjs-client:0.3.4")
+    compile("org.webjars:stomp-websocket:2.3.0")
+    //chapterEighteen STOMP
+    compile("org.springframework:spring-messaging:4.0.4.RELEASE")
+    compile("org.springframework.amqp:spring-rabbit:1.2.1.RELEASE")
+    compile("org.projectreactor:reactor-tcp:1.0.0.RELEASE")
+    //chapterNineteen Email
+    compile "javax.mail:mail:$javaxMailVersion"
+    testCompile "com.icegreen:greenmail-spring:1.4.0"
 
 
 
