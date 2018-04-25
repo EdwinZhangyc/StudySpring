@@ -1,7 +1,8 @@
-package com.spring.two.chapterFive.buildSpringWeb.modelDatatoView;
+package com.spring.four.chapterTwenty.JmxManager.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import com.sun.xml.internal.ws.api.model.MEP;
+import com.spring.four.chapterTwenty.JmxManager.service.SpittleControllerManagedOperations;
+import com.spring.two.chapterFive.buildSpringWeb.modelDatatoView.Spittle;
+import com.spring.two.chapterFive.buildSpringWeb.modelDatatoView.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/spittles")
-public class SpittleController {
+public class SpittleController implements SpittleControllerManagedOperations {
+
+    public static final int DEFAULT_SPITTLES_PER_PAGE = 25;
+    private int spittlesPerpage = DEFAULT_SPITTLES_PER_PAGE;
 
     private SpittleRepository spittleRepository;
 
@@ -22,7 +26,7 @@ public class SpittleController {
 
     //注入spittleRepository
     @Autowired
-    public SpittleController (SpittleRepository spittleRepository) {
+    public SpittleController(SpittleRepository spittleRepository) {
         this.spittleRepository = spittleRepository;
     }
 
@@ -99,4 +103,16 @@ public class SpittleController {
                 model.addAttribute(spittleRepository.findOne(spittleId));
                 return "spittle";
     }
+
+    @Override
+    public int getSpittlesPerPage() {
+        return spittlesPerpage;
+    }
+
+    @Override
+    public void setSpittlePerPage() {
+
+        this.spittlesPerpage = spittlesPerpage;
+    }
+
 }

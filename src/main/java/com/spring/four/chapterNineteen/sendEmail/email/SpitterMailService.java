@@ -12,4 +12,9 @@ public interface SpitterMailService {
   public abstract void sendSpittleEmailWithAttachment(String to, Spittle spittle)
       throws MessagingException;
 
+  public abstract void sendRichSpittlerEmail (String to, Spittle spittle)
+      throws MessagingException;
+
+  public abstract void sendVelocityEngine(String to, Spittle spittle)
+    throws MessagingException;
 }

@@ -44,7 +44,7 @@ public class TestSpittr {
     //@Test
     //public void shouldShowRecentSpittles () throws Exception {
     //
-    //    List<Spittle> spittles = createSpittleList(50);
+    //    List<SpittleControllerManagedOperations> spittles = createSpittleList(50);
     //    //mockRepository
     //    SpittleRepository mockRepository = mock(SpittleRepository.class);
     //    //预期的Max与count
@@ -70,7 +70,7 @@ public class TestSpittr {
     //@Test
     //public void shouldShowRecentSpittles1 () throws Exception {
     //
-    //    List<Spittle> spittles = createSpittleList(20);
+    //    List<SpittleControllerManagedOperations> spittles = createSpittleList(20);
     //    //mockRepository
     //    SpittleRepository mockRepository = mock(SpittleRepository.class);
     //    when(mockRepository.findSpittles(Long.MAX_VALUE, 20)).thenReturn(spittles);
@@ -91,7 +91,7 @@ public class TestSpittr {
     private List<Spittle> createSpittleList(int count) {
         List<Spittle> spittles = new ArrayList<Spittle>();
         for (int i = 0; i < count; i++) {
-            spittles.add(new Spittle("Spittle" + i, new Date()));
+            spittles.add(new Spittle("SpittleControllerManagedOperations" + i, new Date()));
         }
         return spittles;
     }

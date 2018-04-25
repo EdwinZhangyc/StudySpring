@@ -153,6 +153,12 @@ dependencies {
     //chapterNineteen Email
     compile "javax.mail:mail:$javaxMailVersion"
     testCompile "com.icegreen:greenmail-spring:1.4.0"
+    compile 'org.apache.velocity:velocity:1.7'
+    //cahpterTwenty JmxClient
+//    compile 'cmdline-jmxclient:cmdline-jmxclient:0.10.3'
+
+
+
 
 
 
