@@ -36,7 +36,7 @@
                 将@Qualifier注解与@Component  或是JavaConfig中的@Bean注解组合使用，@Qualifier("test")注解的别名与注入时别名一致即可。
             使用自定义的限定符注解
                 @Qualifier注解可以给一个bean加标识（可以想象为标签），但是当多个bean公用这个标签时，spring又不知道该注入哪一个bean了，这时我们可以在一个bean上
-                加多个标签以便使bean的标示唯一，但是java不允许在同一个条目上重复出现相同类型的多个注解
+                  加多个标签以便使bean的标示唯一，但是java不允许在同一个条目上重复出现相同类型的多个注解
                 （java8允许出现重复的注解，只要这个注解在定义时带有@Repeatable注解即可，但是spring得@Qualifier注解在定义时并没有添加@Repeatable注解）
                 此时我们可以使用自定义注解的方式来完美化解，实例在customQualifier包下
                 口述难理解的话，可以查看spring实战3.3整节即可。
